@@ -56,11 +56,12 @@ def register():
         firstname = request.form['firstname']
         lastname = request.form['lastname']
         email = request.form['email']
+        address = request.form['address']
 
         conn = sqlite3.connect(DATABASE)
         c = conn.cursor()
-        c.execute("INSERT INTO users (username, password, firstname, lastname, email) VALUES (?, ?, ?, ?, ?)",
-                  (username, password, firstname, lastname, email))
+        c.execute("INSERT INTO users (username, password, firstname, lastname, email, address) VALUES (?, ?, ?, ?, ?, ?)",
+                  (username, password, firstname, lastname, email, address))
         conn.commit()
         conn.close()
 
